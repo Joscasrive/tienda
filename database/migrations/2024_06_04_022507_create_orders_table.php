@@ -17,10 +17,10 @@ return new class extends Migration
             $table->decimal('grand_total',10,2)->nullable();
             $table->string('payment_method')->nullable();
             $table->string('payment_status')->nullable();
-            $table->enum('status',['nueva','procesando','enviada','entregada','cancelada'])->default('nueva');
+            $table->enum('status',['nuevo','procesando','enviado','entregado','cancelado'])->default('nuevo');
             $table->string('currency')->nullable();
             $table->decimal('shipping_amount',10,2)->nullable();
-            $table->decimal('shipping_method')->nullable();
+            $table->string('shipping_method')->nullable();
             $table->text('notes')->nullable();
 
             $table->timestamps();
