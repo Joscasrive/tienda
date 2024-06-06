@@ -26,6 +26,8 @@ class BrandResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
     protected static ?string $label = 'Marcas';
+    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
@@ -44,6 +46,8 @@ class BrandResource extends Resource
                 TextInput::make('slug')
                     ->maxLength(255)
                     ->required()
+                    ->disabled()
+                    ->dehydrated()
                     ->unique(Brand::class, 'slug', ignoreRecord: true),
             ]),
                     FileUpload::make('image')

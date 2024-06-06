@@ -18,7 +18,7 @@ class Product extends Model
         'price',
         'is_active',
         'is_featured',
-        'is_stock',
+        'in_stock',
         'on_sale'     ];
         protected $casts = ['images'=>'array'];
         public function category(){

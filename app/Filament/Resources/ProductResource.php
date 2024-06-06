@@ -35,6 +35,8 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
     protected static ?string $label = 'Productos';
+    protected static?string $recordTitleAttribute = 'name';
+    protected static?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -65,7 +67,7 @@ class ProductResource extends Resource
                    Select::make('category_id')->label('Categoria')->required()->searchable()->preload()->relationship('category','name'),
                    Select::make('brand_id')->label('Marca')->required()->searchable()->preload()->relationship('brand','name'),
                 ]),
-                Section::make('Estado')->schema([
+                Section::make('Estados')->schema([
                     Toggle::make('in_stock')->label('Stock')->required()->default('true'),
                     Toggle::make('is_active')->label('Activo')->required()->default('true'),
                     Toggle::make('is_featured')->label('Destacado')->required(),

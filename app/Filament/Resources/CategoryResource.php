@@ -26,6 +26,8 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
     protected static ?string $label = 'Categorias';
+    protected static?string $recordTitleAttribute = 'name';
+    protected static?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -44,6 +46,8 @@ class CategoryResource extends Resource
                     TextInput::make('slug')
                         ->maxLength(255)
                         ->required()
+                        ->disabled()
+                        ->dehydrated()
                         ->unique(Category::class, 'slug', ignoreRecord: true),
                 ]),
                         FileUpload::make('image')
